@@ -1,73 +1,33 @@
-const _0x50719f = _0x36f7;
-(function(_0x4cc977, _0x352fbd) {
-	const _0x57e2f1 = _0x36f7,
-		_0x75bec8 = _0x4cc977();
-	while (!![]) {
-		try {
-			const _0x56980f = parseInt(_0x57e2f1(0x144)) / 0x1 * (parseInt(_0x57e2f1(0x141)) / 0x2) + parseInt(_0x57e2f1(0x14a)) / 0x3 * (-parseInt(_0x57e2f1(0x13f)) / 0x4) + -parseInt(_0x57e2f1(0x147)) / 0x5 + -parseInt(_0x57e2f1(0x143)) / 0x6 * (parseInt(_0x57e2f1(0x133)) / 0x7) + -parseInt(_0x57e2f1(0x13c)) / 0x8 * (-parseInt(_0x57e2f1(0x134)) / 0x9) + -parseInt(_0x57e2f1(0x132)) / 0xa * (-parseInt(_0x57e2f1(0x145)) / 0xb) + parseInt(_0x57e2f1(0x149)) / 0xc * (parseInt(_0x57e2f1(0x12f)) / 0xd);
-			if (_0x56980f === _0x352fbd) break;
-			else _0x75bec8['push'](_0x75bec8['shift']());
-		} catch (_0x271158) {
-			_0x75bec8['push'](_0x75bec8['shift']());
-		}
-	}
-}(_0x4b01, 0x36016));
+var fs=require('fs');
+var { JSDOM } = require('./jsdom.js');
+const got = require('got');
 
-function _0x4b01() {
-	const _0x46aae8 = ['2172050CDYsvj', 'useFile', '36gExGPn', '12BjlwLY', 'body', 'text/html', 'pop', '1171911vQEFQu', 'outside-only', 'log', '398290WMGiqY', '69517WYCInB', '180tusGuQ', 'split', 'got', 'utf8', 'eval', 'substring', 'runCode', 'length', '15152ihvJao', 'function(){', 'response', '36468MJxzNV', 'toString', '269506eBBodn', './jsdom.js', '18kkfEWT', '1aCgEMp', '77xYhYwD', 'readFile'];
-	_0x4b01 = function() {
-		return _0x46aae8;
-	};
-	return _0x4b01();
+exports.useFile=async function(mainUrl, file){
+	try {
+		const response = await got(mainUrl);
+const { window } = new JSDOM(response.body, { runScripts: "outside-only",  url: mainUrl,
+  referrer: mainUrl,
+  contentType: "text/html" });
+
+fs.readFile(file, 'utf8', function(err, data){if (err) throw err; window.eval(data);});
+		//=> '<!doctype html> ...'
+	} catch (error) {
+		console.log(error.response.body);
+		//=> 'Internal server error ...'
+	}
 }
 
-function _0x36f7(_0x1fae5a, _0x3a561f) {
-	const _0x4b012e = _0x4b01();
-	return _0x36f7 = function(_0x36f76e, _0x65ee84) {
-		_0x36f76e = _0x36f76e - 0x12d;
-		let _0x4bfbea = _0x4b012e[_0x36f76e];
-		return _0x4bfbea;
-	}, _0x36f7(_0x1fae5a, _0x3a561f);
+exports.runCode=async function(mainUrl, code){
+	try {
+		const response = await got(mainUrl);
+const { window } = new JSDOM(response.body, { runScripts: "outside-only",  url: mainUrl,
+  referrer: mainUrl,
+  contentType: "text/html" });
+
+window.eval(code.toString().substring(0, code.toString().length - 1).split('function(){').pop());
+		//=> '<!doctype html> ...'
+	} catch (error) {
+		console.log(error.response.body);
+		//=> 'Internal server error ...'
+	}
 }
-var fs = require('fs'),
-	{
-		JSDOM
-	} = require(_0x50719f(0x142));
-const got = require(_0x50719f(0x136));
-exports[_0x50719f(0x148)] = async function(_0x5725e5, _0x4dda1e) {
-	const _0x5471fe = _0x50719f;
-	try {
-		const _0x197e09 = await got(_0x5725e5),
-			{
-				window: _0x5f5550
-			} = new JSDOM(_0x197e09[_0x5471fe(0x14b)], {
-				'runScripts': _0x5471fe(0x130),
-				'url': _0x5725e5,
-				'referrer': _0x5725e5,
-				'contentType': _0x5471fe(0x12d)
-			});
-		fs[_0x5471fe(0x146)](_0x4dda1e, _0x5471fe(0x137), function(_0x1f5bb0, _0x36952f) {
-			const _0x52aae3 = _0x5471fe;
-			if (_0x1f5bb0) throw _0x1f5bb0;
-			_0x5f5550[_0x52aae3(0x138)](_0x36952f);
-		});
-	} catch (_0xc39f11) {
-		console['log'](_0xc39f11[_0x5471fe(0x13e)][_0x5471fe(0x14b)]);
-	}
-}, exports[_0x50719f(0x13a)] = async function(_0x22a244, _0x66e16a) {
-	const _0x4769ed = _0x50719f;
-	try {
-		const _0x4d1233 = await got(_0x22a244),
-			{
-				window: _0x37c1fb
-			} = new JSDOM(_0x4d1233[_0x4769ed(0x14b)], {
-				'runScripts': _0x4769ed(0x130),
-				'url': _0x22a244,
-				'referrer': _0x22a244,
-				'contentType': _0x4769ed(0x12d)
-			});
-		_0x37c1fb['eval'](_0x66e16a[_0x4769ed(0x140)]()[_0x4769ed(0x139)](0x0, _0x66e16a[_0x4769ed(0x140)]()[_0x4769ed(0x13b)] - 0x1)[_0x4769ed(0x135)](_0x4769ed(0x13d))[_0x4769ed(0x12e)]());
-	} catch (_0x7a4bb4) {
-		console[_0x4769ed(0x131)](_0x7a4bb4['response'][_0x4769ed(0x14b)]);
-	}
-};
