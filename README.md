@@ -14,3 +14,13 @@ sandbox.runCode('https://example.com', function(){
 });
 ```
 This will log the innerHTML of the website. In JSDOM, it would usually only change the location but not the HTML. In url-sandbox, it changes both the location and HTML.
+You can also use files like this:
+```javascript
+var sandbox = require('url-sandbox');
+sandbox.useFile('https://example.com', './demo.js');
+```
+
+demo.js: 
+```javascript
+  console.log(document.body.innerHTML)
+```
