@@ -13,4 +13,4 @@ sandbox.runCode('https://example.com', function(){
   console.log(document.body.innerHTML)
 });
 ```
-This will log the innerHTML of the website. In JSDOM, it would usually only change the location but not the HTML.
+This will log the innerHTML of the website. In JSDOM, it would usually only change the location but not the HTML. In url-sandbox, it changes both the location and HTML.
