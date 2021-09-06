@@ -8,7 +8,7 @@ npm install url-sandbox
 ```
 Then, use it like this:
 ```javascript
-var sandbox=require('url-sandbox');
+var sandbox = require('url-sandbox');
 sandbox.runCode('https://example.com', function(){
   console.log(document.body.innerHTML)
 });
