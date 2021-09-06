@@ -1,0 +1,25 @@
+{
+  "name": "url-sandbox",
+  "version": "1.0.5",
+  "description": "Run scripts in a URL, based on JSDOM.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'Test is done!'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Unzor/url-sandbox.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "diegab",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Unzor/url-sandbox/issues"
+  },
+  "homepage": "https://github.com/Unzor/url-sandbox#readme",
+  "dependencies": {
+    "got": "^11.8.2"
+  }
+}
