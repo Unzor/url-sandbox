@@ -5,7 +5,7 @@ const got = require('got');
 exports.useFile=async function(mainUrl, file){
 	try {
 		const response = await got(mainUrl);
-const { window } = new JSDOM(response.body, { runScripts: "outside-only",  url: mainUrl,
+const { window } = new JSDOM(response.body, { runScripts: "dangerously",  url: mainUrl,
   referrer: mainUrl,
   contentType: "text/html" });
 
