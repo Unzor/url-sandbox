@@ -20,7 +20,7 @@ fs.readFile(file, 'utf8', function(err, data){if (err) throw err; window.eval(da
 exports.runCode=async function(mainUrl, code){
 	try {
 		const response = await got(mainUrl);
-const { window } = new JSDOM(response.body, { runScripts: "outside-only",  url: mainUrl,
+const { window } = new JSDOM(response.body, { runScripts: "dangerously",  url: mainUrl,
   referrer: mainUrl,
   contentType: "text/html" });
 
