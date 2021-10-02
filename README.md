@@ -9,9 +9,9 @@ npm install url-sandbox
 Then, use it like this:
 ```javascript
 var sandbox = require('url-sandbox');
-sandbox.runCode('https://example.com', function(){
+sandbox.runCode('https://example.com', `
   console.log(document.body.innerHTML)
-});
+ `);
 ```
 This will log the innerHTML of the website. In JSDOM, it would usually only change the location but not the HTML. In url-sandbox, it changes both the location and HTML.
 You can also use files like this:
