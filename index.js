@@ -24,7 +24,7 @@ const { window } = new JSDOM(response.body, { runScripts: "dangerously",  url: m
   referrer: mainUrl,
   contentType: "text/html" });
 
-window.eval(code.toString().substring(0, code.toString().length - 1).split('function(){').pop());
+window.eval(code);
 		//=> '<!doctype html> ...'
 	} catch (error) {
 		console.log(error.response.body);
